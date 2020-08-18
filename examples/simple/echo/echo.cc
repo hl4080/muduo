@@ -38,6 +38,13 @@ void EchoServer::onMessage(const muduo::net::TcpConnectionPtr& conn,
   muduo::string msg(buf->retrieveAllAsString());
   LOG_INFO << conn->name() << " echo " << msg.size() << " bytes, "
            << "data received at " << time.toString();
+  size_t len = msg.size();
+  for(size_t i=0; i<len; ++i) {
+      if(msg[i] >= 'a' && msg[i] <= 'z')
+          msg[i] = static_cast<char>(msg[i] - 32);
+      else if(msg[i] >= 'A' && msg[i] <= 'Z')
+          msg[i] = static_cast<char>(msg[i] + 32);
+  }
   conn->send(msg);
 }
 
