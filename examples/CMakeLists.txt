@@ -1,6 +1,7 @@
 add_subdirectory(ace/ttcp)
 add_subdirectory(asio/chat)
 add_subdirectory(asio/tutorial)
+add_subdirectory(hl-test)
 add_subdirectory(fastcgi)
 add_subdirectory(filetransfer)
 add_subdirectory(hub)
